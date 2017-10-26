@@ -36,11 +36,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func initKeyListener(){
-        NSEvent.addGlobalMonitorForEvents(matching: NSEvent.EventTypeMask.keyUp, handler: self.handleKeyEvent);
+        let eventMask: NSEvent.EventTypeMask = [NSEvent.EventTypeMask.keyUp, NSEvent.EventTypeMask.flagsChanged];
+        NSEvent.addGlobalMonitorForEvents(matching: eventMask, handler: self.handleKeyEvent);
     }
 
     public func handleKeyEvent(with event: NSEvent){
-        self.currentCount += 1;
+        if(event.type == NSEvent.EventType.keyUp){
+            self.currentCount += 1;
+        }else if(event.type == NSEvent.EventType.flagsChanged){
+            if(!event.modifierFlags.isEmpty){
+                self.currentCount += 1;
+            }
+        }
         self.statusItem?.title = String(self.currentCount);
     }
 
