@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F315841F1FA619EB003BB5B0 /* FileKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F315841E1FA619EA003BB5B0 /* FileKit.framework */; };
+		F31584251FA61B72003BB5B0 /* KeyCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31584241FA61B72003BB5B0 /* KeyCounter.swift */; };
 		F33634AE1FA0B9C60092EFB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33634AD1FA0B9C60092EFB4 /* AppDelegate.swift */; };
 		F33634B01FA0B9C60092EFB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33634AF1FA0B9C60092EFB4 /* Assets.xcassets */; };
 		F33634B31FA0B9C60092EFB4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F33634B11FA0B9C60092EFB4 /* MainMenu.xib */; };
+		F363A3C61FA4A8920088320D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F363A3C11FA4A8760088320D /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F315841E1FA619EA003BB5B0 /* FileKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FileKit.framework; path = Carthage/Build/Mac/FileKit.framework; sourceTree = "<group>"; };
+		F31584241FA61B72003BB5B0 /* KeyCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCounter.swift; sourceTree = "<group>"; };
 		F33634AA1FA0B9C60092EFB4 /* KeyCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33634AD1FA0B9C60092EFB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F33634AF1FA0B9C60092EFB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F33634B21FA0B9C60092EFB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F33634B41FA0B9C60092EFB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F33634B51FA0B9C60092EFB4 /* KeyCounter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeyCounter.entitlements; sourceTree = "<group>"; };
+		F363A3C11FA4A8760088320D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +32,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F363A3C61FA4A8920088320D /* SwiftyJSON.framework in Frameworks */,
+				F315841F1FA619EB003BB5B0 /* FileKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +45,7 @@
 			children = (
 				F33634AC1FA0B9C60092EFB4 /* KeyCounter */,
 				F33634AB1FA0B9C60092EFB4 /* Products */,
+				F363A3C51FA4A8920088320D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +60,7 @@
 		F33634AC1FA0B9C60092EFB4 /* KeyCounter */ = {
 			isa = PBXGroup;
 			children = (
+				F31584241FA61B72003BB5B0 /* KeyCounter.swift */,
 				F33634AD1FA0B9C60092EFB4 /* AppDelegate.swift */,
 				F33634AF1FA0B9C60092EFB4 /* Assets.xcassets */,
 				F33634B11FA0B9C60092EFB4 /* MainMenu.xib */,
@@ -58,6 +68,15 @@
 				F33634B51FA0B9C60092EFB4 /* KeyCounter.entitlements */,
 			);
 			path = KeyCounter;
+			sourceTree = "<group>";
+		};
+		F363A3C51FA4A8920088320D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F363A3C11FA4A8760088320D /* SwiftyJSON.framework */,
+				F315841E1FA619EA003BB5B0 /* FileKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,6 +89,7 @@
 				F33634A61FA0B9C60092EFB4 /* Sources */,
 				F33634A71FA0B9C60092EFB4 /* Frameworks */,
 				F33634A81FA0B9C60092EFB4 /* Resources */,
+				F363A3C71FA4A8C30088320D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -93,6 +113,11 @@
 					F33634A91FA0B9C60092EFB4 = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -126,11 +151,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F363A3C71FA4A8C30088320D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/FileKit.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FileKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F33634A61FA0B9C60092EFB4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F31584251FA61B72003BB5B0 /* KeyCounter.swift in Sources */,
 				F33634AE1FA0B9C60092EFB4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,9 +305,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = KeyCounter/KeyCounter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = KeyCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.mynook.team.KeyCounter;
@@ -274,9 +323,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = KeyCounter/KeyCounter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = KeyCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.mynook.team.KeyCounter;
